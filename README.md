@@ -1,2 +1,2 @@
 # gigaevo
-Solution in the branch "task"
+Solution in the "task"
