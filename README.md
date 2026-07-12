@@ -1,2 +1,2 @@
 # gigaevo
-Solution in the "task"
+The solution is located in the `task` 
