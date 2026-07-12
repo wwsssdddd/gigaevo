@@ -31,15 +31,12 @@ VALIDATOR BEHAVIOR
   `validate` raises ValueError only when the output has the wrong shape,
 cannot be converted to real numbers, contains NaN or infinity, or contains
 a row outside the unit-sphere tolerance.
- Coincident points are accepted. If two rows are identical, their pairwise
-distance is zero and fitness is exactly 0.
- Nearly coincident or clustered points are also accepted and naturally
-receive a small fitness.
+ Coincident points are accepted
+ Nearly coincident or clustered points are also accepted
  Every accepted row is normalized before scoring, so radial scaling cannot
 increase fitness.
 
 NUMERICAL CONVENTION
-Distances are chordal distances in R^3, not geodesic angles. If theta is the
-central angle of a pair, the corresponding chordal distance is
-2 sin(theta / 2). The validator computes distances directly from coordinate
-differences in float64 arithmetic.
+Distances are chordal distances in R^3. If t is the
+central angle of a pair, the corresponding chordal distance is 2 * sin(t / 2)
+The validator computes distances directly from coordinate differences
