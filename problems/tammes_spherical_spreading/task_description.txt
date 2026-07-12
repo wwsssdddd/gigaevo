@@ -2,7 +2,6 @@ TASK DEFINITION - TAMMES SPHERICAL SPREADING (24 POINTS)
 
 GOAL
 Place exactly 24 indexed points p_1, ..., p_24 on the unit sphere
-
     S^2 = {p in R^3 : ||p||_2 = 1}
 
 so that the smallest Euclidean distance over all pairs of different indices
@@ -13,10 +12,10 @@ Implement `entrypoint()` and return a real numeric array of shape (24, 3).
 Row i is the Cartesian coordinate vector p_i = (x_i, y_i, z_i).
 
 FEASIBILITY CONSTRAINTS
-- The output must be convertible to a real float64 array of shape (24, 3).
-- Every coordinate must be finite: NaN and positive/negative infinity are
+ The output must be convertible to a real float64 array of shape (24, 3).
+ Every coordinate must be finite: NaN and positive/negative infinity are
   invalid.
-- Every row must lie on the unit sphere. The validator accepts a radial error
+ Every row must lie on the unit sphere. The validator accepts a radial error
   of at most 1e-7 and projects accepted rows radially onto the exact sphere
   before scoring.
 
@@ -29,15 +28,15 @@ The fitness is maximized. Its universal range is [0, 2]. For every accepted
 construction the validator returns `fitness` together with `is_valid = 1`.
 
 VALIDATOR BEHAVIOR
-- `validate` raises ValueError only when the output has the wrong shape,
-  cannot be converted to real numbers, contains NaN or infinity, or contains
-  a row outside the unit-sphere tolerance.
-- Coincident points are accepted. If two rows are identical, their pairwise
-  distance is zero and fitness is exactly 0.
-- Nearly coincident or clustered points are also accepted and naturally
-  receive a small fitness.
-- Every accepted row is normalized before scoring, so radial scaling cannot
-  increase fitness.
+  `validate` raises ValueError only when the output has the wrong shape,
+cannot be converted to real numbers, contains NaN or infinity, or contains
+a row outside the unit-sphere tolerance.
+ Coincident points are accepted. If two rows are identical, their pairwise
+distance is zero and fitness is exactly 0.
+ Nearly coincident or clustered points are also accepted and naturally
+receive a small fitness.
+ Every accepted row is normalized before scoring, so radial scaling cannot
+increase fitness.
 
 NUMERICAL CONVENTION
 Distances are chordal distances in R^3, not geodesic angles. If theta is the
